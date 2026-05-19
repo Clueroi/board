@@ -3,13 +3,16 @@ import { Section } from "@/src/components/section";
 import { Card } from "../../components/card";
 import { MessageCircleIcon, ThumbsUpIcon } from "lucide-react";
 import { Button } from "../../components/button";
+import { Metadata } from "next";
 
 
 interface BoardProps {
   searchParams: Promise<{q?: string}>
 }
 
-
+export const metadata: Metadata = {
+  title: 'Board'
+};
 
 export default async function Board({searchParams}: BoardProps) {
 
