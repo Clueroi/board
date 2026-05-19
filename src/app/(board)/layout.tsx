@@ -8,7 +8,7 @@ export default function BoardLayout({
 }>) {
   return (
     <div className="max-m-[1620px] m-full mx-auto p-10 flex flex-col gap-8 h-dvn">
-      <Header/>
+      <Header  />
       {children}
     </div>
   );
