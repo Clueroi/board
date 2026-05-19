@@ -9,6 +9,7 @@ export async function ListIssues({search}: ListIssuesParams ={}) {
 
   const url = new URL('/api/issues', ClientEnv.NEXT_PUBLIC_API_URL)
 
+
   if(search) {
     url.searchParams.set('search', search)
   }
