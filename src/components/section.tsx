@@ -62,7 +62,7 @@ function SectionContent({ className, ...props }: SectionContentProps) {
   return (
     <div className={
       twMerge(
-        "flex flex-col gap-4 text-base font-medium sm:flex-row",
+        "flex flex-col gap-2.5 overflow-y-auto p-3",
         className
       )
     } {...props} />
