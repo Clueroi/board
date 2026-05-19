@@ -19,7 +19,7 @@ export default async function Board({ searchParams }: BoardProps) {
 
   const { q } = await searchParams
 
-  const issues = await ListIssues()
+  const issues = await ListIssues({ search: q })
 
   return (
 
@@ -30,7 +30,7 @@ export default async function Board({ searchParams }: BoardProps) {
       <Section.Root>
         <Section.Header>
           <Section.Title>
-            <ArchiveIcon className="size-3"/>
+            <ArchiveIcon className="size-3" />
             Backlog
           </Section.Title>
           <Section.IssueCount>
@@ -39,7 +39,11 @@ export default async function Board({ searchParams }: BoardProps) {
 
         </Section.Header>
         <Section.Content>
-          {issues.backlog.map(issue => {
+          {issues.backlog.length === 0 ? (
+            <div className="flex items-center justify-center py-8 text-center">
+              <p>No issues matching your filters</p>
+            </div>
+          ) : issues.backlog.map(issue => {
             return (
               <Card.Root key={issue.id}>
                 <Card.Header>
@@ -76,27 +80,31 @@ export default async function Board({ searchParams }: BoardProps) {
 
         </Section.Header>
         <Section.Content>
-          {issues.todo.map(issue => {
-            return (
-              <Card.Root key={issue.id}>
-                <Card.Header>
-                  <Card.Number>ECO-{issue.issueNumber}</Card.Number>
-                  <Card.Title> {issue.title} </Card.Title>
-                </Card.Header>
-                <Card.Footer>
-                  <Button type="button">
-                    <ThumbsUpIcon className="size-3" />
-                    <span className="text-sm ">12</span>
-                  </Button>
+          {issues.todo.length === 0 ? (
+            <div className="flex items-center justify-center py-8 text-center">
+              <p>No issues matching your filters</p>
+            </div>)
+            : issues.todo.map(issue => {
+              return (
+                <Card.Root key={issue.id}>
+                  <Card.Header>
+                    <Card.Number>ECO-{issue.issueNumber}</Card.Number>
+                    <Card.Title> {issue.title} </Card.Title>
+                  </Card.Header>
+                  <Card.Footer>
+                    <Button type="button">
+                      <ThumbsUpIcon className="size-3" />
+                      <span className="text-sm ">12</span>
+                    </Button>
 
-                  <Button type="button">
-                    <MessageCircleIcon className="size-3" />
-                    <span className="text-sm ">12</span>
-                  </Button>
-                </Card.Footer>
-              </Card.Root>
-            )
-          })}
+                    <Button type="button">
+                      <MessageCircleIcon className="size-3" />
+                      <span className="text-sm ">12</span>
+                    </Button>
+                  </Card.Footer>
+                </Card.Root>
+              )
+            })}
         </Section.Content>
       </Section.Root>
 
@@ -113,7 +121,11 @@ export default async function Board({ searchParams }: BoardProps) {
 
         </Section.Header>
         <Section.Content>
-          {issues.in_progress.map(issue => {
+          {issues.in_progress.length === 0 ? (
+            <div className="flex items-center justify-center py-8 text-center">
+              <p>No issues matching your filters</p>
+            </div>
+          ) : issues.in_progress.map(issue => {
             return (
               <Card.Root key={issue.id}>
                 <Card.Header>
@@ -150,7 +162,11 @@ export default async function Board({ searchParams }: BoardProps) {
 
         </Section.Header>
         <Section.Content>
-          {issues.done.map(issue => {
+          {issues.done.length === 0 ? (
+            <div className="flex items-center justify-center py-8 text-center">
+              <p>No issues matching your filters</p>
+            </div>
+          ) : issues.done.map(issue => {
             return (
               <Card.Root key={issue.id}>
                 <Card.Header>
