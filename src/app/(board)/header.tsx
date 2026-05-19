@@ -11,7 +11,7 @@ export function Header() {
 
       <div className="flex items-center gap-4">
         <div className="relative">
-          <SearchIcon className="absolute size-4 text-navy-200 left-2.5 top-1/2 -translate-y-1/2 " />
+          <SearchIcon className="absolute size-4 text-navy-200 left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <Input type="text" placeholder="Search for features" className="w-[270px] pl-8" />
         </div>
 
