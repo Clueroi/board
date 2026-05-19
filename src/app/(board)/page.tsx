@@ -4,8 +4,19 @@ import { Card } from "../../components/card";
 import { MessageCircleIcon, ThumbsUpIcon } from "lucide-react";
 import { Button } from "../../components/button";
 
-export default function Home() {
+
+interface BoardProps {
+  searchParams: Promise<{q?: string}>
+}
+
+
+
+export default async function Board({searchParams}: BoardProps) {
+
+  const { q } = await searchParams
+
   return (
+
     
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
