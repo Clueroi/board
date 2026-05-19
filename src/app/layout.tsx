@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
   subsets: ["latin"],
-  weight: "100"
+  weight: ["400", "500", "600"]
 });
 
 export const metadata: Metadata = {

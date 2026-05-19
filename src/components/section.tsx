@@ -7,7 +7,7 @@ interface SectionRootProps extends ComponentProps<'div'> {
 function SectionRoot({ className, ...props }: SectionRootProps) {
   return (
     <div className={twMerge(
-      "flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black",
+      "bg-navy-800 rounded-xl border-[0.5px] border-navy-500 pt-3 flex flex-col gap-1 relative",
       className
     )} {...props} />
   )
@@ -20,7 +20,7 @@ function SectionHeader({ className, ...props }: SectionHeaderProps) {
   return (
     <div className={
       twMerge(
-        "flex flex-col items-center gap-6 text-center sm:items-start sm:text-left",
+        "flex items-center justify-between px-3",
         className
       )
     } {...props} />
@@ -34,7 +34,7 @@ function SectionTitle({ className, ...props }: SectionTitleProps) {
   return (
     <span className={
       twMerge(
-        "max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50",
+        "bg-navy-700 rounded-lg px-3 py-1.5 flex items-center gap-2 text-x",
         className
       )
     } {...props} />
@@ -48,7 +48,7 @@ function SectionIssueCount({ className, ...props }: SectionIssueCountProps) {
   return (
     <span className={
       twMerge(
-        "max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400",
+        "flex flex-col gap-2.5 overflow-y-auto p-3 absolute inset-0 top-10 scrollbar scrollbar-thumb-navy-600 scrollbar-track-transparent",
         className
       )
     } {...props} />
@@ -62,7 +62,7 @@ function SectionContent({ className, ...props }: SectionContentProps) {
   return (
     <div className={
       twMerge(
-        "flex flex-col gap-2.5 overflow-y-auto p-3",
+        "flex flex-col gap-2.5 overflow-y-auto p-3 absolute inset-0 top-12",
         className
       )
     } {...props} />
