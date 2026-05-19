@@ -1,5 +1,5 @@
 import "../globals.css";
-import { Header } from "./header";
+import { Header } from "./header/index";
 
 export default function BoardLayout({
   children,
